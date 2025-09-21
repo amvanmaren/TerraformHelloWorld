@@ -16,8 +16,8 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "example_name" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
+  instance_type = var.instance_type
   tags = {
-    Name = "example_name"
+    Name = var.instance_name
   }
 }
